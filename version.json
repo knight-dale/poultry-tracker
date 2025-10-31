@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "url": "https://poultry-tracker.netlify.app/download/poultry-tracker.apk",
   "mandatory": true,
   "release_notes": "• Report generation and download\n• Improved egg data handling (latest entry overwrites previous same-day data)\n• Enhanced functionality and bug fixes",
