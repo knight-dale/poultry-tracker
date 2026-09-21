@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const SUPABASE_URL = "https://cjuwxvauqzryyehijrgf.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNqdXd4dmF1cXpyeXllaGlqcmdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0MTQ5MjksImV4cCI6MjA3OTk5MDkyOX0._jhB9YKB86sU5OcGoCQ5TW3uvXuNgmCVdXLGToP_Hgw";
+
+    const supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
     const loader = document.getElementById("pageLoader");
     if (loader) {
         setTimeout(() => {
@@ -147,15 +155,38 @@ document.addEventListener("DOMContentLoaded", () => {
          */
 
         try {
-            // Temporary local confirmation so the site works immediately.
-            console.log("Survey response:", data);
+            const { error } = await supabaseClient
+                .from("survey_responses")
+                .insert([{
+                    flock_size: data.flock_size || null,
+                    poultry_type: data.poultry_type || [],
+                    usage_frequency: data.usage_frequency || null,
+                    current_features: data.current_features || [],
+                    valuable_features: data.valuable_features || [],
+                    missing_feature: data.missing_feature || null,
+                    biggest_problem: data.biggest_problem || null,
+                    pay_interest: data.pay_interest || null,
+                    price: data.price || null,
+                    pay_reason: data.pay_reason || null,
+                    multiple_farms_interest: data.multiple_farms_interest || null,
+                    improvement: data.improvement || null,
+                    contact: data.contact || null,
+                    consent: true,
+                    submitted_at: data.submitted_at
+                }]);
 
-            // Remove this line when your real backend is connected.
-            localStorage.setItem("poultry_tracker_survey_submitted", "true");
+            if (error) {
+                console.error("Supabase error:", error);
+                showError("We couldn't submit your response. Please try again.");
+                return;
+            }
+
+            console.log("Survey response saved successfully.");
 
             window.location.href = "./thank-you.html";
+
         } catch (error) {
-            console.error(error);
+            console.error("Submission error:", error);
             showError("Something went wrong. Please try again.");
         }
     });

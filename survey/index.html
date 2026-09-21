@@ -37,8 +37,8 @@
         <section class="survey-shell">
             <div class="progress-area">
                 <div class="progress-top">
-                    <span id="stepLabel">Question 1 of 8</span>
-                    <span id="progressPercent">13%</span>
+                    <span id="stepLabel">Question 1 of 9</span>
+                    <span id="progressPercent">11%</span>
                 </div>
                 <div class="progress-track">
                     <div class="progress-bar" id="progressBar"></div>
@@ -65,7 +65,7 @@
                     <div class="choice-grid">
                         <label class="choice"><input type="checkbox" name="poultry_type" value="Layers"><span>🥚 Layers</span></label>
                         <label class="choice"><input type="checkbox" name="poultry_type" value="Broilers"><span>🐔 Broilers</span></label>
-                        <label class="choice"><input type="checkbox" name="poultry_type" value="Kienyeji"><span>🌾 Kienyeji</span></label>
+                        <label class="choice"><input type="checkbox" name="poultry_type" value="Both"><span>🌾 Both</span></label>
                         <label class="choice"><input type="checkbox" name="poultry_type" value="Other"><span>Other</span></label>
                     </div>
                 </div>
@@ -172,20 +172,79 @@
 
                 <div class="question" data-step="8">
                     <span class="question-number">08</span>
+                    <h2>Would you pay to manage multiple farms?</h2>
+                    <p class="question-help">
+                        We're exploring a premium feature that would let you manage more than one farm
+                        from a single Poultry Tracker account.
+                    </p>
+
+                    <label>
+                        If this feature were available as a premium feature, would you pay for it?
+                    </label>
+
+                    <div class="choice-stack">
+                        <label class="choice">
+                            <input type="radio" name="multiple_farms_interest" value="Definitely">
+                            <span>Yes, definitely</span>
+                        </label>
+
+                        <label class="choice">
+                            <input type="radio" name="multiple_farms_interest" value="Maybe">
+                            <span>Maybe, depending on the price</span>
+                        </label>
+
+                        <label class="choice">
+                            <input type="radio" name="multiple_farms_interest" value="Probably not">
+                            <span>Probably not</span>
+                        </label>
+
+                        <label class="choice">
+                            <input type="radio" name="multiple_farms_interest" value="No">
+                            <span>No, I would not pay for it</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" data-step="9">
+                    <span class="question-number">09</span>
                     <h2>One last thing.</h2>
-                    <p class="question-help">Help us make Poultry Tracker better for farmers like you.</p>
+                    <p class="question-help">
+                        Help us make Poultry Tracker better for farmers like you.
+                    </p>
 
-                    <label for="improvement">What is the one thing you would change or improve about Poultry Tracker?</label>
-                    <textarea id="improvement" name="improvement" rows="7"
-                        placeholder="Your honest feedback is welcome."></textarea>
+                    <label for="improvement">
+                        What is the one thing you would change or improve about Poultry Tracker?
+                    </label>
 
-                    <label for="contact">Would you like us to contact you about future Poultry Tracker updates?</label>
-                    <input class="text-input" id="contact" name="contact" type="text"
-                        placeholder="Optional — email or phone number">
+                    <textarea
+                        id="improvement"
+                        name="improvement"
+                        rows="7"
+                        placeholder="Your honest feedback is welcome."
+                    ></textarea>
+
+                    <label for="contact">
+                        Would you like us to contact you about future Poultry Tracker updates?
+                    </label>
+
+                    <input
+                        class="text-input"
+                        id="contact"
+                        name="contact"
+                        type="text"
+                        placeholder="Optional — email or phone number"
+                    >
 
                     <label class="consent-choice">
-                        <input type="checkbox" id="consent" name="consent" value="Yes">
-                        <span>I understand my answers may be used to improve Poultry Tracker.</span>
+                        <input
+                            type="checkbox"
+                            id="consent"
+                            name="consent"
+                            value="Yes"
+                        >
+                        <span>
+                            I understand my answers may be used to improve Poultry Tracker.
+                        </span>
                     </label>
                 </div>
 
@@ -206,6 +265,7 @@
         <p class="footer-copy">© 2026 Poultry Tracker App. All rights reserved.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./js/survey.js"></script>
 </body>
 </html>
