@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poultry Tracker — Help Us Build What's Next</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/survey.css">
+</head>
+<body>
+    <div class="page-loader" id="pageLoader">🐣</div>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo"><span>🐣</span> Poultry Tracker</a>
+            <a href="/" class="back-link">Back to website</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="survey-hero">
+            <div class="hero-badge">🌾 Farmer feedback</div>
+            <h1>Help us build the <span>next Poultry Tracker.</span></h1>
+            <p>
+                You're already part of the Poultry Tracker community. Tell us what would make
+                the app more useful on your farm — and what features you'd actually pay for.
+            </p>
+
+            <div class="survey-meta">
+                <span>⏱️ About 3–5 minutes</span>
+                <span>🔒 Your answers are private</span>
+            </div>
+        </section>
+
+        <section class="survey-shell">
+            <div class="progress-area">
+                <div class="progress-top">
+                    <span id="stepLabel">Question 1 of 8</span>
+                    <span id="progressPercent">13%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+
+            <form id="surveyForm" novalidate>
+                <div class="question active" data-step="1">
+                    <span class="question-number">01</span>
+                    <h2>Tell us about your poultry farm.</h2>
+                    <p class="question-help">This helps us understand who we're building Poultry Tracker for.</p>
+
+                    <label>How many birds do you currently keep?</label>
+                    <div class="choice-grid">
+                        <label class="choice"><input type="radio" name="flock_size" value="1–20"><span>1–20</span></label>
+                        <label class="choice"><input type="radio" name="flock_size" value="21–50"><span>21–50</span></label>
+                        <label class="choice"><input type="radio" name="flock_size" value="51–100"><span>51–100</span></label>
+                        <label class="choice"><input type="radio" name="flock_size" value="101–500"><span>101–500</span></label>
+                        <label class="choice"><input type="radio" name="flock_size" value="501–1000"><span>501–1,000</span></label>
+                        <label class="choice"><input type="radio" name="flock_size" value="1000+"><span>1,000+</span></label>
+                    </div>
+
+                    <label>What type of poultry do you keep?</label>
+                    <div class="choice-grid">
+                        <label class="choice"><input type="checkbox" name="poultry_type" value="Layers"><span>🥚 Layers</span></label>
+                        <label class="choice"><input type="checkbox" name="poultry_type" value="Broilers"><span>🐔 Broilers</span></label>
+                        <label class="choice"><input type="checkbox" name="poultry_type" value="Kienyeji"><span>🌾 Kienyeji</span></label>
+                        <label class="choice"><input type="checkbox" name="poultry_type" value="Other"><span>Other</span></label>
+                    </div>
+                </div>
+
+                <div class="question" data-step="2">
+                    <span class="question-number">02</span>
+                    <h2>How are you using Poultry Tracker?</h2>
+                    <p class="question-help">There are no right or wrong answers.</p>
+
+                    <label>How often do you use the app?</label>
+                    <div class="choice-stack">
+                        <label class="choice"><input type="radio" name="usage_frequency" value="Daily"><span>Every day</span></label>
+                        <label class="choice"><input type="radio" name="usage_frequency" value="Several times a week"><span>Several times a week</span></label>
+                        <label class="choice"><input type="radio" name="usage_frequency" value="About once a week"><span>About once a week</span></label>
+                        <label class="choice"><input type="radio" name="usage_frequency" value="Less often"><span>Less often</span></label>
+                    </div>
+
+                    <label>Which parts of Poultry Tracker do you currently use?</label>
+                    <div class="choice-grid">
+                        <label class="choice"><input type="checkbox" name="current_features" value="Poultry records"><span>🐔 Poultry records</span></label>
+                        <label class="choice"><input type="checkbox" name="current_features" value="Egg records"><span>🥚 Egg records</span></label>
+                        <label class="choice"><input type="checkbox" name="current_features" value="Expenses"><span>💰 Expenses</span></label>
+                        <label class="choice"><input type="checkbox" name="current_features" value="Vaccinations"><span>💉 Vaccinations</span></label>
+                        <label class="choice"><input type="checkbox" name="current_features" value="Feed"><span>🌾 Feed</span></label>
+                        <label class="choice"><input type="checkbox" name="current_features" value="Marketplace"><span>🏪 Marketplace</span></label>
+                    </div>
+                </div>
+
+                <div class="question" data-step="3">
+                    <span class="question-number">03</span>
+                    <h2>What is most valuable to you?</h2>
+                    <p class="question-help">Choose up to 3.</p>
+
+                    <label>Which features would you most like Poultry Tracker to improve or expand?</label>
+                    <div class="choice-grid">
+                        <label class="choice"><input type="checkbox" name="valuable_features" value="Flock analytics"><span>📊 Flock analytics</span></label>
+                        <label class="choice"><input type="checkbox" name="valuable_features" value="Egg production analytics"><span>🥚 Egg analytics</span></label>
+                        <label class="choice"><input type="checkbox" name="valuable_features" value="Expense and profit tracking"><span>💰 Expenses & profit</span></label>
+                        <label class="choice"><input type="checkbox" name="valuable_features" value="Vaccination reminders"><span>💉 Vaccination reminders</span></label>
+                        <label class="choice"><input type="checkbox" name="valuable_features" value="Feed management"><span>🌾 Feed management</span></label>
+                        <label class="choice"><input type="checkbox" name="valuable_features" value="Reports"><span>📄 PDF/Excel reports</span></label>
+                        <label class="choice"><input type="checkbox" name="valuable_features" value="Marketplace"><span>🏪 Marketplace</span></label>
+                        <label class="choice"><input type="checkbox" name="valuable_features" value="AI assistant"><span>🤖 AI assistant</span></label>
+                        <label class="choice"><input type="checkbox" name="valuable_features" value="Health records"><span>🩺 Health records</span></label>
+                        <label class="choice"><input type="checkbox" name="valuable_features" value="Reminders"><span>🔔 Farm reminders</span></label>
+                    </div>
+
+                    <div class="limit-note" id="featureLimit">Select up to 3 features.</div>
+                </div>
+
+                <div class="question" data-step="4">
+                    <span class="question-number">04</span>
+                    <h2>What's missing?</h2>
+                    <p class="question-help">Tell us about a problem you would like the app to solve.</p>
+
+                    <label for="missing_feature">What feature or tool would you like us to add?</label>
+                    <textarea id="missing_feature" name="missing_feature" rows="6"
+                        placeholder="For example: I would like to know how profitable each flock is..."></textarea>
+
+                    <label for="biggest_problem">What is the biggest challenge you face when managing your poultry records?</label>
+                    <textarea id="biggest_problem" name="biggest_problem" rows="5"
+                        placeholder="Tell us what currently takes too much time or is difficult to track."></textarea>
+                </div>
+
+                <div class="question" data-step="5">
+                    <span class="question-number">05</span>
+                    <h2>Would premium features be useful?</h2>
+                    <p class="question-help">We're exploring optional paid tools. The core app may remain free.</p>
+
+                    <label>Would you consider paying for advanced Poultry Tracker features?</label>
+                    <div class="choice-stack">
+                        <label class="choice"><input type="radio" name="pay_interest" value="Definitely"><span>Yes, if the features are genuinely useful</span></label>
+                        <label class="choice"><input type="radio" name="pay_interest" value="Maybe"><span>Maybe, depending on the features and price</span></label>
+                        <label class="choice"><input type="radio" name="pay_interest" value="No"><span>No, I would only use the free version</span></label>
+                        <label class="choice"><input type="radio" name="pay_interest" value="Not sure"><span>I'm not sure yet</span></label>
+                    </div>
+                </div>
+
+                <div class="question" data-step="6">
+                    <span class="question-number">06</span>
+                    <h2>What price feels reasonable?</h2>
+                    <p class="question-help">This is only research — it does not charge you anything.</p>
+
+                    <label>For a useful package of advanced farming tools, what would you consider reasonable?</label>
+                    <div class="choice-stack">
+                        <label class="choice"><input type="radio" name="price" value="Free only"><span>🆓 I would only use free features</span></label>
+                        <label class="choice"><input type="radio" name="price" value="Less than $1/month"><span>Less than $1 / month</span></label>
+                        <label class="choice"><input type="radio" name="price" value="$1/month"><span>$1 / month</span></label>
+                        <label class="choice"><input type="radio" name="price" value="$2/month"><span>$2 / month</span></label>
+                        <label class="choice"><input type="radio" name="price" value="$3/month"><span>$3 / month</span></label>
+                        <label class="choice"><input type="radio" name="price" value="Yearly plan"><span>I would prefer a yearly plan</span></label>
+                    </div>
+                </div>
+
+                <div class="question" data-step="7">
+                    <span class="question-number">07</span>
+                    <h2>What would make you pay?</h2>
+                    <p class="question-help">This is one of the most important questions in the survey.</p>
+
+                    <label for="pay_reason">If you were going to pay for Poultry Tracker, what would you need it to do for you?</label>
+                    <textarea id="pay_reason" name="pay_reason" rows="7"
+                        placeholder="Tell us what would make the app worth paying for."></textarea>
+                </div>
+
+                <div class="question" data-step="8">
+                    <span class="question-number">08</span>
+                    <h2>One last thing.</h2>
+                    <p class="question-help">Help us make Poultry Tracker better for farmers like you.</p>
+
+                    <label for="improvement">What is the one thing you would change or improve about Poultry Tracker?</label>
+                    <textarea id="improvement" name="improvement" rows="7"
+                        placeholder="Your honest feedback is welcome."></textarea>
+
+                    <label for="contact">Would you like us to contact you about future Poultry Tracker updates?</label>
+                    <input class="text-input" id="contact" name="contact" type="text"
+                        placeholder="Optional — email or phone number">
+
+                    <label class="consent-choice">
+                        <input type="checkbox" id="consent" name="consent" value="Yes">
+                        <span>I understand my answers may be used to improve Poultry Tracker.</span>
+                    </label>
+                </div>
+
+                <div class="form-error" id="formError"></div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="prevBtn">← Back</button>
+                    <button type="button" class="btn-primary" id="nextBtn">Continue →</button>
+                    <button type="submit" class="btn-primary" id="submitBtn">Submit feedback ✓</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-tagline">🐣 Poultry Tracker</p>
+        <p>Made for farmers, by farmers.</p>
+        <p class="footer-copy">© 2026 Poultry Tracker App. All rights reserved.</p>
+    </footer>
+
+    <script src="./js/survey.js"></script>
+</body>
+</html>
