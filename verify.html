@@ -1,23 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
-    body { display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #F6F8F6; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    #turnstile-container {
+      display: flex;
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
-  <div class="cf-turnstile"
-       data-sitekey="0x4AAAAAAFA4Bi49GK5YCG_G"
-       data-callback="onTurnstileSuccess">
+  <div id="turnstile-container">
+    <div class="cf-turnstile"
+         data-sitekey="0x4AAAAAAFA4Bi49GK5YCG_G"
+         data-callback="onTurnstileSuccess"
+         data-error-callback="onTurnstileError"
+         data-appearance="interaction-only">
+    </div>
   </div>
+
   <script>
     function onTurnstileSuccess(token) {
-      if (window.AndroidBridge) {
+      if (window.AndroidBridge && window.AndroidBridge.onToken) {
         window.AndroidBridge.onToken(token);
       }
     }
+
+    function onTurnstileError(errorCode) {
+      if (window.AndroidBridge && window.AndroidBridge.onError) {
+        window.AndroidBridge.onError(String(errorCode));
+      }
+    }
+
+    function reportHeight() {
+      var h = document.body.scrollHeight;
+      if (window.AndroidBridge && window.AndroidBridge.onHeight) {
+        window.AndroidBridge.onHeight(h);
+      }
+    }
+
+    window.addEventListener('load', function () {
+      reportHeight();
+      setTimeout(reportHeight, 600);
+      setTimeout(reportHeight, 1500);
+    });
+    var observer = new MutationObserver(reportHeight);
+    observer.observe(document.body, { childList: true, subtree: true });
   </script>
 </body>
 </html>
