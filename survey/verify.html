@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>
+    body { display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #F6F8F6; }
+  </style>
+</head>
+<body>
+  <div class="cf-turnstile"
+       data-sitekey="0x4AAAAAAFA4Bi49GK5YCG_G"
+       data-callback="onTurnstileSuccess">
+  </div>
+  <script>
+    function onTurnstileSuccess(token) {
+      if (window.AndroidBridge) {
+        window.AndroidBridge.onToken(token);
+      }
+    }
+  </script>
+</body>
+</html>
