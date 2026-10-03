@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poultry Tracker App - Flock Management</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐣</text></svg>">
 </head>
@@ -19,7 +19,7 @@
                 <a href="#download" class="nav-link">Download</a>
                 <a href="#screenshots" class="nav-link">Screenshots</a>
                 <a href="#features" class="nav-link">Features</a>
-                <a href="privacy.html" class="nav-link">Privacy</a>
+                <a href="privacy.html" class="nav-link">Terms</a>
                 <a href="delete.html" class="nav-link">Delete Account</a>
                 <a href="survey/index.html" class="nav-link">Survey</a>
             </div>
@@ -28,65 +28,95 @@
     </nav>
 
     <section class="hero" id="home">
+        <div class="hero-bg" id="heroBg"></div>
         <div class="hero-container">
             <div class="hero-content">
-                <span class="badge">Built for the field 🌾</span>
-                <h1 class="hero-title">Run Your Flock Like a Pro, <span>From Your Pocket.</span></h1>
+                <span class="eyebrow">Built for farms with patchy signal</span>
+                <h1 class="hero-title">Run your flock like a records office, <em>not a notebook.</em></h1>
 
                 <p class="hero-subtitle">
-                    Whether you're raising a backyard flock or running a full-scale poultry farm, Poultry Tracker
-                    keeps your records straight and your business growing. No notebooks, no guesswork.
+                    Whether you keep a dozen hens in the yard or run a full production farm, Poultry Tracker
+                    logs what happened, what's due, and what you spent, so you stop reconstructing it from memory.
                 </p>
 
-                <div class="hero-features-mini">
-                    <p>🐔 <strong>Track:</strong> Poultry, eggs, and vaccinations.</p>
-                    <p>📶 <strong>Offline:</strong> Works perfectly in remote farms.</p>
-                    <p>🏪 <strong>Marketplace:</strong> Buy, sell, and chat with local farmers.</p>
+                <div class="field-notes">
+                    <p><strong>Daily logs</strong> for poultry counts, eggs, feed, and vaccinations</p>
+                    <p><strong>Works offline</strong> and syncs once you're back near a signal</p>
+                    <p><strong>A regional marketplace</strong> to buy, sell, and chat with nearby farmers</p>
                 </div>
 
-                <div>
+                <div class="hero-actions">
                     <a href="https://play.google.com/store/apps/details?id=com.knightdale.poultrytracker" class="download-btn">
-                        <span>Get on Google Play</span>
+                        <span>Get it on Google Play</span>
                     </a>
-                    <p style="font-size: 0.85rem; color: var(--soil-soft); margin-top: 12px; margin-left: 5px;">
-                        Join farmers already digitizing their flock records.
-                    </p>
+                    <p class="hero-note">Free to start. One month on us for first-time subscribers.</p>
                 </div>
             </div>
 
             <div class="hero-mockup">
                 <div class="mockup-wrapper">
+                    <span class="mockup-pin"></span>
                     <img src="images/menu.jpeg" alt="App Mockup">
-                    <div class="floating-stat">
-                        <span style="font-size: 1.4rem;">🥚</span>
-                        <div>
-                            <div style="font-weight: 700; font-size: 0.95rem;">Daily Egg Log</div>
-                            <div style="font-size: 0.8rem; color: var(--soil-soft);">Tracked automatically</div>
-                        </div>
+                </div>
+                <div class="floating-stat">
+                    <span class="floating-stat-figure">🥚</span>
+                    <div>
+                        <div class="floating-stat-title">Daily egg log</div>
+                        <div class="floating-stat-sub">Totals tracked for you</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="section-divider"></div>
+    <div class="stats-strip">
+        <div class="stats-strip-inner">
+            <div class="stat-box">
+                <span class="stat-number">2.4k+</span>
+                <span class="stat-label">Farmers logging flock activity</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Offline access for remote farms</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">30+</span>
+                <span class="stat-label">Tools for day-to-day poultry care</span>
+            </div>
+        </div>
+    </div>
 
     <section class="section" id="download">
-        <h2>📱 Download the App</h2>
-        <div class="version-card">
-            <p><strong>Android:</strong> 10 and above</p>
-            <p><strong>Last Updated:</strong> <span id="lastUpdated">Loading...</span></p>
+        <div class="section-header">
+            <span class="eyebrow">Get the app</span>
+            <h2>Download Poultry Tracker</h2>
+            <p class="section-lead">Built to keep your flock records accurate, visible, and ready when you need them.</p>
         </div>
-        <a href="https://play.google.com/store/apps/details?id=com.knightdale.poultrytracker" class="download-btn" style="margin: 20px 0;">
-            <span>Install via Play Store</span>
-        </a>
+
+        <div class="download-surface">
+            <div class="download-copy">
+                <h3>Manage your farm from anywhere</h3>
+                <p>Track poultry, expenses, health reminders, marketplace listings, and daily production without juggling paper records or spreadsheets.</p>
+            </div>
+
+            <div>
+                <div class="version-card">
+                    <p><strong>Android:</strong> 10 and above</p>
+                    <p><strong>Last updated:</strong> <span id="lastUpdated">01 Oct 2026</span></p>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.knightdale.poultrytracker" class="download-btn" style="margin-top: 18px; width: 100%;">
+                    <span>Install via Play Store</span>
+                </a>
+            </div>
+        </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <section class="section" id="screenshots">
-        <h2 style="margin-bottom: 8px;">📸 App Gallery</h2>
-        <p style="color: var(--soil-soft); margin-bottom: 30px;">A look at the tools in your pocket.</p>
+        <div class="section-header">
+            <span class="eyebrow">Inside the app</span>
+            <h2>A look at the tools in your pocket</h2>
+            <p class="section-lead">Every screen is built to be filled in standing in a coop, not at a desk.</p>
+        </div>
         <div class="screenshot-grid">
             <div class="screenshot-item"><img src="images/menu.jpeg"><div class="screenshot-caption">Main Dashboard</div></div>
             <div class="screenshot-item"><img src="images/chatbot.jpeg"><div class="screenshot-caption">AI Assistant</div></div>
@@ -100,30 +130,31 @@
         </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <section class="section" id="features">
-        <h2 style="margin-bottom: 8px;">⭐ Why Farmers Choose Us</h2>
-        <p style="color: var(--soil-soft); margin-bottom: 30px;">Everything you need, nothing you don't.</p>
+        <div class="section-header">
+            <span class="eyebrow">Why farmers choose us</span>
+            <h2>Everything you need, nothing you don't</h2>
+            <p class="section-lead">No feature here exists to pad a list. Each one replaces a notebook page.</p>
+        </div>
         <div class="features-grid">
-            <div class="feature-card"><h3>📶 Offline Ready</h3><p>Manage your farm without needing constant internet.</p></div>
-            <div class="feature-card"><h3>🏪 Marketplace</h3><p>Buy, sell, and trade poultry products in your region.</p></div>
-            <div class="feature-card"><h3>💬 Farmer Chat</h3><p>Connect and discuss farming with neighbors.</p></div>
-            <div class="feature-card"><h3>🤖 AI Assistant</h3><p>Get instant answers to your poultry health queries.</p></div>
-            <div class="feature-card"><h3>📊 Track Counts</h3><p>Monitor chicks, hens, and roosters with statistics.</p></div>
-            <div class="feature-card"><h3>🥚 Egg Logs</h3><p>Log production and calculate rates automatically.</p></div>
-            <div class="feature-card"><h3>💉 Vaccination</h3><p>Schedule reminders for your flock's health.</p></div>
+            <div class="feature-card"><h3>Offline ready</h3><p>Manage your farm without needing constant internet.</p></div>
+            <div class="feature-card"><h3>Marketplace</h3><p>Buy, sell, and trade poultry products in your region.</p></div>
+            <div class="feature-card"><h3>Farmer chat</h3><p>Connect and discuss farming with neighbors.</p></div>
+            <div class="feature-card"><h3>AI assistant</h3><p>Get instant answers to your poultry health queries.</p></div>
+            <div class="feature-card"><h3>Flock counts</h3><p>Monitor chicks, hens, and roosters with statistics.</p></div>
+            <div class="feature-card"><h3>Egg logs</h3><p>Log production and calculate rates automatically.</p></div>
+            <div class="feature-card"><h3>Vaccination reminders</h3><p>Schedule reminders for your flock's health.</p></div>
         </div>
     </section>
 
     <footer>
         <p class="footer-tagline">🐣 Poultry Tracker</p>
         <p>Made for farmers, by farmers.</p>
-        <div class="footer-stamp">Trusted on the farm since 2026</div>
+        <div class="footer-stamp">On farms since 2026</div>
         <div class="contact-links">
             <a href="https://wa.me/2547100530702" class="contact-link">WhatsApp</a>
             <a href="mailto:poultrytracker1@gmail.com" class="contact-link">Email Support</a>
-            <a href="privacy.html" class="contact-link">Privacy & Terms</a>
+            <a href="privacy.html" class="contact-link">Terms &amp; Privacy</a>
             <a href="delete.html" class="contact-link">Delete Account</a>
         </div>
         <p class="footer-copy">&copy; 2026 Poultry Tracker App. All rights reserved.</p>

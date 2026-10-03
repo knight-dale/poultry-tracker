@@ -7,14 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
     const backToTopBtn = document.getElementById('backToTop');
     const heroBg = document.getElementById('heroBg');
-    const downloadLink = document.getElementById('downloadLink');
-
-    const versionNumber = document.getElementById('versionNumber');
-    const currentVersion = document.getElementById('currentVersion');
-    const downloadVersion = document.getElementById('downloadVersion');
-    const updateStatus = document.getElementById('updateStatus');
-    const releaseDate = document.getElementById('releaseDate');
-    const releaseNotes = document.getElementById('releaseNotes');
     const lastUpdated = document.getElementById('lastUpdated');
 
     let currentModal = null;
@@ -92,6 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadVersionData() {
+        if (!lastUpdated) return;
+
         fetch('./version.json')
             .then(response => {
                 if (!response.ok) {
@@ -100,65 +94,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(data => {
-                if (versionNumber) versionNumber.textContent = data.version;
-                if (currentVersion) currentVersion.textContent = data.version;
-                if (downloadVersion) downloadVersion.textContent = data.version;
-
-                if (updateStatus) {
-                    if (data.mandatory) {
-                        updateStatus.textContent = '🔄 Mandatory Update Required';
-                        updateStatus.style.backgroundColor = 'var(--danger-soft)';
-                        updateStatus.style.color = 'var(--danger)';
-                    } else {
-                        updateStatus.textContent = '✅ Latest Version Available';
-                        updateStatus.style.backgroundColor = 'var(--success-soft)';
-                        updateStatus.style.color = 'var(--success)';
-                    }
-                }
-
-                if (releaseNotes) {
-                    releaseNotes.innerHTML = data.release_notes.replace(/\n/g, '<br>');
-                }
-
                 const date = new Date(data.timestamp);
                 const formattedDate = date.toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
                 });
-
-                if (releaseDate) releaseDate.textContent = formattedDate;
-                if (lastUpdated) lastUpdated.textContent = formattedDate;
-
-                if (downloadLink) {
-                    downloadLink.href = data.url;
-                    downloadLink.download = `PoultryTracker_v${data.version}.apk`;
-                }
+                lastUpdated.textContent = formattedDate;
             })
             .catch(() => {
-                const fallbackVersion = '1.2.1';
                 const fallbackDate = new Date().toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
                 });
-
-                if (versionNumber) versionNumber.textContent = fallbackVersion;
-                if (currentVersion) currentVersion.textContent = fallbackVersion;
-                if (downloadVersion) downloadVersion.textContent = fallbackVersion;
-                if (updateStatus) {
-                    updateStatus.textContent = '⚠️ Check updates in app';
-                    updateStatus.style.backgroundColor = 'var(--gold-soft)';
-                    updateStatus.style.color = 'var(--soil)';
-                }
-                if (releaseNotes) releaseNotes.textContent = 'Initial release with flock tracking features';
-                if (releaseDate) releaseDate.textContent = fallbackDate;
-                if (lastUpdated) lastUpdated.textContent = fallbackDate;
-
-                if (downloadLink) {
-                    downloadLink.href = './download/poultry-tracker.apk';
-                    downloadLink.download = `PoultryTracker_v${fallbackVersion}.apk`;
-                }
+                lastUpdated.textContent = fallbackDate;
             });
     }
 
@@ -171,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (currentPath.includes('privacy') && link.getAttribute('href') === 'privacy.html') {
                 link.classList.add('active');
-            } else if (currentPath.includes('delete-account') && link.getAttribute('href') === 'delete-account.html') {
+            } else if (currentPath.includes('delete') && link.getAttribute('href') === 'delete.html') {
                 link.classList.add('active');
             } else if (currentHash && link.getAttribute('href') === currentHash) {
                 link.classList.add('active');
@@ -182,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateActiveNavLinkOnScroll() {
-        if (window.location.pathname.includes('privacy') || window.location.pathname.includes('delete-account')) {
+        if (window.location.pathname.includes('privacy') || window.location.pathname.includes('delete')) {
             return;
         }
 
@@ -245,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 modal.style.left = '0';
                 modal.style.width = '100%';
                 modal.style.height = '100%';
-                modal.style.backgroundColor = 'rgba(46,42,31,0.95)';
+                modal.style.backgroundColor = 'rgba(22,33,15,0.95)';
                 modal.style.display = 'flex';
                 modal.style.flexDirection = 'column';
                 modal.style.justifyContent = 'center';
@@ -266,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const caption = this.querySelector('.screenshot-caption');
                 const modalCaption = document.createElement('div');
                 modalCaption.textContent = caption ? caption.textContent : img.alt;
-                modalCaption.style.color = '#F1ECDC';
+                modalCaption.style.color = '#eef1e3';
                 modalCaption.style.marginTop = '20px';
                 modalCaption.style.fontSize = '1.2rem';
                 modalCaption.style.textAlign = 'center';
@@ -277,8 +227,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 closeBtn.style.position = 'absolute';
                 closeBtn.style.top = '20px';
                 closeBtn.style.right = '30px';
-                closeBtn.style.background = 'rgba(241,236,220,0.2)';
-                closeBtn.style.color = '#F1ECDC';
+                closeBtn.style.background = 'rgba(238,241,227,0.2)';
+                closeBtn.style.color = '#eef1e3';
                 closeBtn.style.border = 'none';
                 closeBtn.style.width = '50px';
                 closeBtn.style.height = '50px';
@@ -288,11 +238,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 closeBtn.style.transition = 'background 0.3s';
 
                 closeBtn.addEventListener('mouseenter', () => {
-                    closeBtn.style.background = 'rgba(241,236,220,0.3)';
+                    closeBtn.style.background = 'rgba(238,241,227,0.3)';
                 });
 
                 closeBtn.addEventListener('mouseleave', () => {
-                    closeBtn.style.background = 'rgba(241,236,220,0.2)';
+                    closeBtn.style.background = 'rgba(238,241,227,0.2)';
                 });
 
                 closeBtn.addEventListener('click', (e) => {

@@ -143,17 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         data.submitted_at = new Date().toISOString();
 
-        /*
-         * SUPABASE HOOK:
-         * Replace this block with your Supabase REST/API call when your
-         * survey_responses table is ready.
-         *
-         * Example fields to store:
-         * flock_size, poultry_type, usage_frequency, current_features,
-         * valuable_features, missing_feature, biggest_problem, pay_interest,
-         * price, pay_reason, improvement, contact, submitted_at
-         */
-
         try {
             const { error } = await supabaseClient
                 .from("survey_responses")

@@ -1,0 +1,20 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.swp
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+
+# Local env files
+.env
+.env.*
+
+# Requested project doc exclusion
+# This README is being ignored per your request, but it is often useful to keep it tracked.
+README.md
