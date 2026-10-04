@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /download/
+Disallow: /survey/
+
+Sitemap: https://poultrytracker.co.ke/sitemap.xml
