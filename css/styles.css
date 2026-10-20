@@ -262,34 +262,31 @@ h1, h2, h3 {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .mockup-wrapper {
   position: relative;
-  width: min(100%, 372px);
-  padding: 16px;
-  border-radius: 26px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-lg);
-  transform: rotate(-2deg);
+  width: min(100%, 280px);
+  padding: 0;
+  border-radius: 24px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transform: none;
 }
 
 .mockup-wrapper img {
   width: 100%;
-  border-radius: 18px;
+  height: auto;
+  border-radius: 24px;
+  border: 1px solid rgba(22, 33, 15, 0.12);
+  box-shadow: 0 24px 50px rgba(16, 24, 11, 0.18);
+  display: block;
 }
 
 .mockup-pin {
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--amber);
-  box-shadow: 0 8px 18px rgba(168, 111, 28, 0.4);
+  display: none;
 }
 
 .floating-stat {
@@ -468,7 +465,7 @@ h1, h2, h3 {
 
 .screenshot-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
@@ -480,6 +477,8 @@ h1, h2, h3 {
   box-shadow: var(--shadow-sm);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .screenshot-item:hover {
@@ -489,16 +488,19 @@ h1, h2, h3 {
 
 .screenshot-item img {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 
 .screenshot-caption {
   padding: 12px 14px 16px;
   text-align: center;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
+  font-size: 0.88rem;
   font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--panel);
+  border-top: 1px solid var(--line-soft);
+  margin-top: auto;
 }
 
 .privacy-header {
@@ -1049,6 +1051,11 @@ footer {
   .hero-content {
     max-width: none;
     text-align: left;
+  }
+
+  .mockup-wrapper {
+    width: min(100%, 260px);
+    margin: 10px auto 0;
   }
 
   .floating-stat {
